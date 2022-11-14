@@ -3,6 +3,16 @@ entries:
   fixedge:
   - apiVersion: v2
     appVersion: 1.0.1
+    created: "2022-11-14T11:00:09.118977145Z"
+    description: A Helm chart for Kubernetes
+    digest: c5cb5b586cc4bf0c2982736a8798ea7bb5b0e04971f4fa516446916267ce6d77
+    name: fixedge
+    type: application
+    urls:
+    - https://github.com/morozandralek/helmcharts/releases/download/fixedge-0.1.4/fixedge-0.1.4.tgz
+    version: 0.1.4
+  - apiVersion: v2
+    appVersion: 1.0.1
     created: "2022-11-11T09:14:59.015657835Z"
     description: A Helm chart for Kubernetes
     digest: 17a5ca8a20fe9391409d4b2d5c7c2c154644b122474494b5013bd484193dddd8
@@ -42,6 +52,16 @@ entries:
     - https://github.com/morozandralek/helmcharts/releases/download/fixedge-0.1.0/fixedge-0.1.0.tgz
     version: 0.1.0
   fixicc-agent:
+  - apiVersion: v2
+    appVersion: 1.0.1
+    created: "2022-11-14T11:00:09.274859591Z"
+    description: A Helm chart for Kubernetes
+    digest: 68fd16656d16ea55bc1c92a861fcf0b8d58e2c87f7dac8d512659e6c69f962b8
+    name: fixicc-agent
+    type: application
+    urls:
+    - https://github.com/morozandralek/helmcharts/releases/download/fixicc-agent-0.1.4/fixicc-agent-0.1.4.tgz
+    version: 0.1.4
   - apiVersion: v2
     appVersion: 1.0.1
     created: "2022-11-11T09:14:59.168838108Z"
