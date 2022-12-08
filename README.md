@@ -23,6 +23,8 @@ If you want to use a private repository with configuration for fixedge and fixic
 
     kubectl create secret generic ssh-creds --from-file=known_hosts --from-file=id_rsa --namespace fixedge
 
+*Command to generate known_hosts: `ssh-keyscan -H github.com > known_hosts` where `github.com` is the domain of your svc*
+
 ### Installing the Chart
 To install the chart with the release name `my-release`:
     
