@@ -70,7 +70,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | fixicc_agent.port | Application port | 8005 |
 | fixicc_agent.livenessProbe.initialDelaySeconds | Number of seconds after the container has started before startup | 15 |
 | fixicc_agent.livenessProbe.periodSeconds | How often (in seconds) to perform the probe | 20 |
-| fixicc_agent.NLB.enabled | Use AWS NLB service | true |
+| fixicc_agent.NLB.enabled | Use AWS NLB service | false |
 | fixicc_agent.NLB.allowCIDR | List of allowed addresses for NLB | [] |
 | fixicc_agent.resources | CPU/Memory resource requests/limits | Memory: 200Mi, CPU: 200m |
 | fixicc_agent.storage.class | Storage class name | storage-fixicc-agent |
