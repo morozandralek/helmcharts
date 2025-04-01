@@ -3,6 +3,16 @@ entries:
   fixedge:
   - apiVersion: v2
     appVersion: 6.15.0
+    created: "2025-04-01T09:08:26.236996063Z"
+    description: A Helm chart for Kubernetes
+    digest: f1dcf55bd42244575272b4770504dce222d721cbc2675bebbcd0a63a2b6e501c
+    name: fixedge
+    type: application
+    urls:
+    - https://github.com/morozandralek/helmcharts/releases/download/fixedge-0.1.17/fixedge-0.1.17.tgz
+    version: 0.1.17
+  - apiVersion: v2
+    appVersion: 6.15.0
     created: "2023-03-20T08:55:38.920349218Z"
     description: A Helm chart for Kubernetes
     digest: 957dfcf1dd09883ebb20e0be5707e632cef46eed85970ae426c1f8bfdc7df4cd
