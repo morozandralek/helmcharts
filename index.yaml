@@ -181,6 +181,17 @@ entries:
     urls:
     - https://github.com/morozandralek/helmcharts/releases/download/fixedge-0.1.0/fixedge-0.1.0.tgz
     version: 0.1.0
+  fixedge-java:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2025-04-11T06:11:37.438165897Z"
+    description: A Helm chart for Kubernetes
+    digest: 2f8745eafc91752bd9d64974ba97ec650e0bb93d4d26e0927ce70516e3e69fc4
+    name: fixedge-java
+    type: application
+    urls:
+    - https://github.com/morozandralek/helmcharts/releases/download/fixedge-java-0.1.3/fixedge-java-0.1.3.tgz
+    version: 0.1.3
   fixedge-java-helm-chart:
   - apiVersion: v2
     appVersion: 1.16.0
