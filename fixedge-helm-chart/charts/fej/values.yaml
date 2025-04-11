@@ -1,0 +1,30 @@
+force_init_configs: false
+git_configs:
+  url: https://github.com/morozandralek/b2bits-config.git
+  branch: main
+
+imagePullSecrets: []
+
+global:
+  fixedge_java:
+    image:
+      url: b2bitsepam/fixedge-java
+      version: 1.10.4
+      imagePullPolicy: Always
+    port: 8901
+    httpAdmPort: 8911
+    livenessProbe:
+      initialDelaySeconds: 15
+      periodSeconds: 20
+    resources:
+      requests:
+        cpu: 0.5
+        memory: 1Gi
+      limits:
+        cpu: 0.5
+        memory: 1Gi
+
+  storage:
+    accessModes: ReadWriteOnce
+    fe_java_session_logs:
+      size: 10Gi

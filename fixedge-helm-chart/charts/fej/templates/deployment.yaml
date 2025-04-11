@@ -1,0 +1,74 @@
+---
+
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: fixedge-java
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: fixedge-java
+  serviceName: "fixedge-java"
+  template:
+    metadata:
+      labels:
+        app: fixedge-java
+        service: fixedge-java
+    spec:
+      volumes:
+      - name: fixedge-java-configmap-files
+        configMap:
+          name: fixedge-java-configmap-files
+      - name: fixaj2-license-file
+        secret:
+          secretName: fixaj2-java-license-file
+      - name: fixedge-java-license-file
+        secret:
+          secretName: fixedge-java-license-file
+      - name: fixeye-agent-license-file
+        secret:
+          secretName: fixeye-agent-license-file
+      - name: fixedge-java-session-logs-data
+        persistentVolumeClaim:
+          claimName: fixedge-java-session-logs-pvc
+      containers:
+      - name: fixedge-java
+        image: {{ .Values.global.fixedge_java.image.url }}:{{ .Values.global.fixedge_java.image.version }}
+        resources:
+{{ toYaml .Values.global.fixedge_java.resources | indent 10 }}
+        imagePullPolicy: {{ .Values.global.fixedge_java.image.imagePullPolicy }}
+        ports:
+        - containerPort: {{ .Values.global.fixedge_java.port }}
+          protocol: TCP
+        - containerPort: {{ .Values.global.fixedge_java.httpAdmPort }}
+          protocol: TCP
+        volumeMounts:
+        - name: fixedge-java-session-logs-data
+          mountPath: /var/lib/fixedge-java
+        - name: fixedge-java-configmap-files
+          mountPath: /etc/fixedge-java/fixedge.properties
+          subPath: fixedge.properties
+        - name: fixaj2-license-file
+          mountPath: /etc/fixedge-java/fixaj2-license.bin
+          subPath: fixaj2-license.bin
+        - name: fixedge-java-license-file
+          mountPath: /etc/fixedge-java/fixedgej-license.bin
+          subPath: fixedgej-license.bin
+      - name: fixeye-agent
+        image: {{ .Values.global.fixeye_agent.image.url }}:{{ .Values.global.fixeye_agent.image.version }}
+        resources:
+{{ toYaml .Values.global.fixeye_agent.resources | indent 10 }}
+        imagePullPolicy: {{ .Values.global.fixeye_agent.image.imagePullPolicy }}
+        ports:
+        - containerPort: {{ .Values.global.fixeye_agent.port }}
+          protocol: TCP
+        volumeMounts:
+        - name: fixeye-agent-license-file
+          mountPath: /etc/fixeye/fixeye-agent.license
+          subPath: fixeye-agent.license
+        - name: fixedge-java-configmap-files
+          mountPath: /etc/fixeye/fixeye-agent.config
+          subPath: fixeye-agent.config
+        - name: fixedge-java-session-logs-data
+          mountPath: /var/data/fixedge-java
