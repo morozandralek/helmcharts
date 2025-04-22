@@ -18,9 +18,5 @@ spec:
       protocol: TCP
       port: {{ .Values.global.fixedge_java.httpAdmPort }}
       targetPort: {{ .Values.global.fixedge_java.httpAdmPort }}
-    - name: fixeye
-      protocol: TCP
-      port: {{ .Values.global.fixeye_agent.port }}
-      targetPort: {{ .Values.global.fixeye_agent.port }}
 
 {{ if .Values.global.fixedge_java.loadbalancer.enable }}

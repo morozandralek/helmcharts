@@ -26,9 +26,6 @@ spec:
       - name: fixedge-java-license-file
         secret:
           secretName: fixedge-java-license-file
-      - name: fixeye-agent-license-file
-        secret:
-          secretName: fixeye-agent-license-file
       - name: fixedge-java-session-logs-data
         persistentVolumeClaim:
           claimName: fixedge-java-session-logs-pvc
@@ -55,20 +52,4 @@ spec:
         - name: fixedge-java-license-file
           mountPath: /etc/fixedge-java/fixedgej-license.bin
           subPath: fixedgej-license.bin
-      - name: fixeye-agent
-        image: {{ .Values.global.fixeye_agent.image.url }}:{{ .Values.global.fixeye_agent.image.version }}
-        resources:
-{{ toYaml .Values.global.fixeye_agent.resources | indent 10 }}
-        imagePullPolicy: {{ .Values.global.fixeye_agent.image.imagePullPolicy }}
-        ports:
-        - containerPort: {{ .Values.global.fixeye_agent.port }}
-          protocol: TCP
-        volumeMounts:
-        - name: fixeye-agent-license-file
-          mountPath: /etc/fixeye/fixeye-agent.license
-          subPath: fixeye-agent.license
-        - name: fixedge-java-configmap-files
-          mountPath: /etc/fixeye/fixeye-agent.config
-          subPath: fixeye-agent.config
-        - name: fixedge-java-session-logs-data
-          mountPath: /var/data/fixedge-java
+
